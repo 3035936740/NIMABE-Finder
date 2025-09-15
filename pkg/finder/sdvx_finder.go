@@ -149,6 +149,7 @@ func (manager *SDVXManager) LoadData(DBPath string) error {
 		"vvd": "infinite",
 		"xcd": "infinite",
 		"mxm": "maximum",
+		"ult": "ultimate",
 	}
 
 	musicList := mv["mdb"].(map[string]any)["music"].([]any)
@@ -202,6 +203,7 @@ func (manager *SDVXManager) LoadData(DBPath string) error {
 		_, exhaustExist := difficulties["exhaust"]
 		_, infiniteExist := difficulties["infinite"]
 		_, maximumExist := difficulties["maximum"]
+		_, ultimateExist := difficulties["ultimate"]
 
 		if noviceExist {
 			difficultyList = append(difficultyList, "nov")
@@ -227,6 +229,9 @@ func (manager *SDVXManager) LoadData(DBPath string) error {
 		}
 		if maximumExist {
 			difficultyList = append(difficultyList, "mxm")
+		}
+		if ultimateExist {
+			difficultyList = append(difficultyList, "ult")
 		}
 
 		Info.Difficulties = make(map[string]DifficultyInfo)
